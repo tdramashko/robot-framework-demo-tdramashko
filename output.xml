@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-11-23T14:31:28.354543" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\VSCodeProjects\Robot-demo\robot-framework-demo-tdramashko\tests">
+<suite id="s1-s1" name="Smoke" source="C:\VSCodeProjects\Robot-demo\robot-framework-demo-tdramashko\tests\smoke.robot">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2025-11-23T14:31:28.602850" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-23T14:31:28.602645" elapsed="1.092135"/>
+</kw>
+<test id="s1-s1-t1" name="Smoke Test" line="9">
+<kw name="Go To Home Page" owner="common">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-23T14:31:29.695990" level="INFO">Opening url 'https://example.com'</msg>
+<arg>https://example.com</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-23T14:31:29.695893" elapsed="0.469099"/>
+</kw>
+<status status="PASS" start="2025-11-23T14:31:29.695645" elapsed="0.469486"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-11-23T14:31:30.171539" level="INFO">Page title is 'Example Domain'.</msg>
+<arg>Example Domain</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-11-23T14:31:30.165442" elapsed="0.006180"/>
+</kw>
+<status status="PASS" start="2025-11-23T14:31:29.694974" elapsed="0.476959"/>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-11-23T14:31:30.172952" elapsed="2.087920"/>
+</kw>
+<status status="PASS" start="2025-11-23T14:31:28.372903" elapsed="3.888111"/>
+</suite>
+<status status="PASS" start="2025-11-23T14:31:28.355406" elapsed="3.907737"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="1" fail="0" skip="0">Tests</stat>
+<stat name="Smoke" id="s1-s1" pass="1" fail="0" skip="0">Tests.Smoke</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
