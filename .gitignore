@@ -1,2 +1,50 @@
+==================================
+
+Python-specific files
+
+==================================
+
+Virtual environments
+
 venv/
+.venv/
+env/
+.env/
+
+Byte-code and temporary files
+
+pycache/
+*.pyc
+
+Build artifacts
+
+dist/
+build/
+*.egg-info/
+
+==================================
+
+Robot Framework specific files
+
+==================================
+
+Robot Framework output files (ALWAYS ignore these)
+
+output.xml
+log.html
+report.html
+.robot.py
+
+Ignore any specific results directory if it's placed in the root
+
+We will explicitly manage the 'results' folder below, but this is a good safety net.
+
 results/
+
+==================================
+
+VS Code files
+
+==================================
+
+.vscode/
