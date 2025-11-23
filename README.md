@@ -35,5 +35,82 @@ Follow these steps to clone the repository, set up the environment, and run the 
 ### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/[Your-GitHub-Username]/[Your-Repo-Name].git
+git clone [https://github.com/](https://github.com/)[Your-GitHub-Username]/[Your-Repo-Name].git
 cd [Your-Repo-Name]
+````
+
+### 3\. Setup Virtual Environment
+
+It is highly recommended to use a Python virtual environment to manage dependencies.
+
+```bash
+# Create the virtual environment
+python -m venv venv
+
+# Activate the virtual environment
+# On Windows:
+.\venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+```
+
+### 4\. Install Dependencies
+
+Install all required Robot Framework libraries from the `requirements.txt` file.
+
+```bash
+pip install -r requirements.txt
+```
+
+## ▶️ How to Run the Test Suite
+
+The tests can be executed directly from the command line using the `robot` command.
+
+### Running All Tests
+
+To run the entire suite in the `tests/` directory:
+
+```bash
+robot tests/
+```
+
+### Running Specific Tests by Tag
+
+Tests are organized using tags (e.g., `Smoke`, `Regression`).
+
+```bash
+# Run only tests tagged 'Smoke'
+robot --include Smoke tests/
+```
+
+### Running a Specific File
+
+```bash
+robot tests/LoginTests.robot
+```
+
+## 📊 Reporting
+
+After execution, Robot Framework automatically generates comprehensive reports in the root directory:
+
+  * **`log.html`**: Detailed execution log.
+  * **`report.html`**: Summary report of all test runs (open this in your browser).
+  * **`output.xml`**: Raw XML output file.
+
+## 📁 Project Structure
+
+The automation code is organized for maximum maintainability and clarity:
+
+```
+.
+├── resources/           # Implements the Page Object Model (POM)
+│   ├── LoginPage.robot  # Keywords and locators for the Login Page
+│   └── Common.robot     # Setup, Teardown, and common helper keywords
+├── tests/               # Main Test Cases that define the user journey
+│   ├── SmokeTests.robot
+│   └── Regression/
+│       └── CheckoutFlow.robot
+├── drivers/             # Stores necessary browser drivers (e.g., chromedriver)
+├── requirements.txt     # List of all Python dependencies
+└── README.md
+```
