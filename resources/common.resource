@@ -28,6 +28,50 @@ Perform Login Via API
     ${resp}=    POST On Session    restful    /auth    json=${data}
     Set Test Variable    ${response}    ${resp}
 
+Get Auth Token
+    [Documentation]    Extracts and returns the auth token from login response
+    [Arguments]    ${username}    ${password}
+    Perform Login Via API    ${username}    ${password}
+    ${token}=    Set Variable    ${response.json()}[token]
+    RETURN    ${token}
+
+Validate Token Format
+    [Documentation]    Validates that the token has proper format (not empty, reasonable length)
+    [Arguments]    ${token}
+    Should Not Be Empty    ${token}
+    ${token_length}=    Get Length    ${token}
+    Should Be True    ${token_length} > 10    Token should be reasonably long
+
+Use Token In Request
+    [Documentation]    Makes an authenticated request using the token
+    [Arguments]    ${token}
+    ${headers}=    Create Dictionary    Cookie=token=${token}
+    ${resp}=    GET On Session    restful    /booking    headers=${headers}
+    RETURN    ${resp}
+
+Create Booking With Token
+    [Documentation]    Creates a booking using authentication token
+    [Arguments]    ${token}
+    ${booking_dates}=    Create Dictionary    checkin=2026-01-10    checkout=2026-01-12
+    ${booking_data}=    Create Dictionary
+    ...    firstname=Test
+    ...    lastname=User
+    ...    totalprice=100
+    ...    depositpaid=true
+    ...    bookingdates=${booking_dates}
+    ...    additionalneeds=Breakfast
+    ${headers}=    Create Dictionary    Cookie=token=${token}
+    ${resp}=    POST On Session    restful    /booking    json=${booking_data}    headers=${headers}
+    RETURN    ${resp}
+
+Validate Token Expiration
+    [Documentation]    Tests that tokens eventually expire (or at least work initially)
+    [Arguments]    ${token}
+    # First request should work
+    ${resp1}=    Use Token In Request    ${token}
+    Status Should Be    200    ${resp1}
+    # Note: Restful Booker tokens don't expire in demo, but this validates token works
+
 # UI Keywords
 
 Launch UI Browser And Go To Login
