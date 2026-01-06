@@ -142,8 +142,9 @@ Verify API Response Schema
     [Documentation]    Verifies that an API response matches expected schema structure
     [Arguments]    ${response}    ${expected_keys}
     ${response_data}=    Set Variable    ${response.json()}
-    :FOR    ${key}    IN    @{expected_keys}
-    \    Dictionary Should Contain Key    ${response_data}    ${key}
+    FOR  ${key}  IN  @{expected_keys}
+        Dictionary Should Contain Key    ${response_data}    ${key}
+    END
 
 # General Verification Keywords
 Verify Value Is Not Empty

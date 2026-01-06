@@ -21,7 +21,7 @@ Complete Room Booking Process
     [Documentation]    Complete end-to-end room booking process
     [Arguments]    ${booking_data}    ${user_credentials}=${EMPTY}
     # Navigate to home page
-    Go To Home Page
+    Navigate To Home Page
 
     # Select available room
     ${available_rooms}=    Get Available Rooms Count
@@ -51,7 +51,7 @@ Book Room With API And Verify UI
     ${booking_id}=    Get From Dictionary    ${api_response.json()}    bookingid
 
     # Verify booking appears in UI
-    Go To Home Page
+    Navigate To Home Page
     Verify Booking In UI    ${booking_id}    ${booking_data}
 
     RETURN    ${booking_id}
@@ -245,3 +245,23 @@ Get Bookings In Date Range
     # For now, return mock data
     ${bookings}=    Create List
     RETURN    ${bookings}
+
+# API Helper Keywords
+Create Booking Via API
+    [Documentation]    Creates a booking via API and returns the response
+    [Arguments]    ${booking_data}
+    ${response}=    POST On Session    restful    /booking    json=${booking_data}
+    Status Should Be    200    ${response}
+    RETURN    ${response}
+
+Get Booking Via API
+    [Documentation]    Retrieves a booking by ID via API
+    [Arguments]    ${booking_id}
+    ${response}=    GET On Session    restful    /booking/${booking_id}
+    Status Should Be    200    ${response}
+    RETURN    ${response.json()}
+
+Get Booking ID From Confirmation
+    [Documentation]    Extracts booking ID from confirmation page
+    ${booking_id}=    Get Text    xpath=//span[@class='booking-id' or contains(@class,'confirmation-id')]
+    RETURN    ${booking_id}
