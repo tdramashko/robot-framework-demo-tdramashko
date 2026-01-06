@@ -1,4 +1,9 @@
 *** Settings ***
+Documentation    PAGE OBJECT - Booking Page
+...              Locators and keywords specific to the Booking Page
+...              Part of the Page Object Model (POM) architecture
+...              Referenced by: common.resource → used by all tests
+
 Library         SeleniumLibrary
 
 *** Variables ***

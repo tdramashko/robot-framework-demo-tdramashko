@@ -1,7 +1,33 @@
 *** Settings ***
+Documentation    CENTRAL RESOURCE FILE - All tests import this file for unified resource access
+...              This file is the single point of entry for all resource imports
+...              Structure: Libraries → Page Objects → Common Utilities → Workflows → Variables
 
+# ========== LIBRARIES ==========
 Library         RequestsLibrary
 Library         SeleniumLibrary
+
+# ========== PAGE OBJECTS ==========
+# POM Pattern: Each page has its own resource file with page-specific keywords and locators
+Resource        ../resources/pages/HomePage.robot
+Resource        ../resources/pages/BookingPage.robot
+Resource        ../resources/pages/AdminPage.robot
+Resource        ../resources/pages/ContactPage.robot
+
+# ========== COMMON UTILITIES ==========
+# Navigation: Base navigation keywords used across all tests
+Resource        ../resources/common/NavigationCommon.robot
+# Verification: General verification and assertion keywords
+Resource        ../resources/common/VerificationCommon.robot
+# Data Setup: Test data generation and setup utilities
+Resource        ../resources/common/DataSetupCommon.robot
+
+# ========== BUSINESS WORKFLOWS ==========
+# Complex multi-step workflows that combine page objects and utilities
+Resource        ../resources/workflows/BookingWorkflow.robot
+
+# ========== VARIABLES ==========
+# Environment-specific variables: URLs, credentials, browser config
 Variables       ../libraries/common_variables.py
 
 *** Keywords ***

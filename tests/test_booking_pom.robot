@@ -3,15 +3,6 @@ Documentation     Comprehensive booking workflow tests using Page Object Model
 ...               NOTE: These tests demonstrate POM architecture and workflow patterns.
 ...               Actual execution depends on target application functionality.
 Resource          ../resources/common.resource
-Resource          ../resources/pages/HomePage.robot
-Resource          ../resources/pages/BookingPage.robot
-Resource          ../resources/pages/AdminPage.robot
-Resource          ../resources/pages/ContactPage.robot
-Resource          ../resources/common/NavigationCommon.robot
-Resource          ../resources/common/VerificationCommon.robot
-Resource          ../resources/common/DataSetupCommon.robot
-Resource          ../resources/workflows/BookingWorkflow.robot
-
 Suite Setup       Log    Booking Workflow Tests Starting
 Suite Teardown    Log    Booking Workflow Tests Completed
 Test Setup        Log    Starting test: ${TEST NAME}

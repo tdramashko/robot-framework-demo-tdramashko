@@ -1,4 +1,9 @@
 *** Settings ***
+Documentation    PAGE OBJECT - Contact Page
+...              Locators and keywords specific to the Contact Page
+...              Part of the Page Object Model (POM) architecture
+...              Referenced by: common.resource → used by all tests
+
 Library         SeleniumLibrary
 
 *** Variables ***

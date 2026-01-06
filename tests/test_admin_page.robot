@@ -3,11 +3,6 @@ Documentation     Comprehensive admin page tests using Page Object Model
 ...               NOTE: These tests demonstrate POM structure for admin functionality.
 ...               Actual test execution depends on the target application's admin features.
 Resource          ../resources/common.resource
-Resource          ../resources/pages/AdminPage.robot
-Resource          ../resources/common/NavigationCommon.robot
-Resource          ../resources/common/VerificationCommon.robot
-Resource          ../resources/common/DataSetupCommon.robot
-Resource          ../resources/workflows/BookingWorkflow.robot
 
 Suite Setup       Log    Admin Page Framework Tests Starting
 Suite Teardown    Log    Admin Page Framework Tests Completed

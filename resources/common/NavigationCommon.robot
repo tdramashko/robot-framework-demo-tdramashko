@@ -1,4 +1,9 @@
 *** Settings ***
+Documentation    COMMON UTILITY - Navigation Keywords
+...              Provides base navigation keywords used across all tests
+...              Examples: Go To Home Page, Go To Login Page, Go To Admin Panel
+...              Referenced by: common.resource → used by all tests
+
 Library         SeleniumLibrary
 Resource        ../common.resource
 

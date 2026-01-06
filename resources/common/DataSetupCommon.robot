@@ -1,4 +1,9 @@
 *** Settings ***
+Documentation    COMMON UTILITY - Data Setup Keywords
+...              Provides test data generation and setup utilities
+...              Examples: Create Test User, Create Test Booking Data, Generate Random String
+...              Referenced by: common.resource → used by all tests
+
 Library         SeleniumLibrary
 Library         RequestsLibrary
 Library         Collections
@@ -115,9 +120,13 @@ Teardown Test Environment
 
 # Data Generation Keywords
 Generate Random String
-    [Documentation]    Generates a random string of specified length
-    [Arguments]    ${length}=8
-    ${random_string}=    Evaluate    ''.join(random.choices(string.ascii_letters + string.digits, k=${length}))    modules=random,string
+    [Documentation]    Generates a random string of specified length from given characters
+    [Arguments]    ${length}=8    ${chars}=[LETTERS][NUMBERS]
+    ${char_set}=    Set Variable If
+    ...    '${chars}' == '[LETTERS]'    abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+    ...    '${chars}' == '[LETTERS][NUMBERS]'    abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+    ...    ${chars}
+    ${random_string}=    Evaluate    ''.join(random.choices('${char_set}', k=int(${length})))    modules=random
     RETURN    ${random_string}
 
 Generate Random Email

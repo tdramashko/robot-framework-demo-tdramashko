@@ -1,4 +1,9 @@
 *** Settings ***
+Documentation    COMMON UTILITY - Verification Keywords
+...              Provides general verification and assertion keywords
+...              Examples: Verify Element Is Visible, Verify Page Contains Text
+...              Referenced by: common.resource → used by all tests
+
 Library         SeleniumLibrary
 Library         Collections
 

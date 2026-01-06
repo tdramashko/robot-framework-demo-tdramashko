@@ -1,4 +1,9 @@
 *** Settings ***
+Documentation    BUSINESS WORKFLOW - Booking Workflow
+...              Complex multi-step workflows combining page objects and utilities
+...              Examples: Complete Room Booking Process, Book Room With API And Verify UI
+...              Referenced by: common.resource → used by booking tests
+
 Library         SeleniumLibrary
 Library         RequestsLibrary
 Library         Collections
