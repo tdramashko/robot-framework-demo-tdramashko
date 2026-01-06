@@ -26,11 +26,6 @@ Go To Admin Panel
     # Wait for page to load (actual content verification depends on application)
     Sleep    3s
 
-Go To Contact Page
-    [Documentation]    Navigates to the contact page
-    Go To    ${UI_URL}/contact
-    Wait Until Page Contains    Contact Us    timeout=10s
-
 Go To Booking Page
     [Documentation]    Navigates to the booking page
     Go To    ${UI_URL}/booking

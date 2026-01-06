@@ -7,7 +7,6 @@ Documentation    COMMON UTILITY - Data Setup Keywords
 Library         SeleniumLibrary
 Library         RequestsLibrary
 Library         Collections
-Resource        ../common.resource
 
 *** Keywords ***
 # Test Data Setup Keywords

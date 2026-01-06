@@ -17,24 +17,8 @@ ${NAV_CONTACT_LINK}         xpath=//a[contains(text(),'Contact')]
 ${NAV_ADMIN_LINK}           xpath=//a[contains(text(),'Admin panel')]
 
 *** Keywords ***
-# Navigation Keywords
-Go To Home Page
-    [Documentation]    Navigates to the home page of the application
-    Go To    ${UI_URL}
-    # Wait for page to load (actual content verification depends on application)
-    Sleep    3s
-
-Navigate To Contact Page
-    [Documentation]    Clicks on the Contact navigation link
-    Click Link    ${NAV_CONTACT_LINK}
-    Wait Until Page Contains    Contact Information    timeout=10s
-
-Navigate To Admin Panel
-    [Documentation]    Clicks on the Admin panel navigation link
-    Click Link    ${NAV_ADMIN_LINK}
-    # Note: This will redirect to login page if not authenticated
-
 # Room Interaction Keywords
+# Navigation keywords moved to NavigationCommon.robot to avoid duplication
 Get Available Rooms Count
     [Documentation]    Returns the count of available rooms displayed
     ${count}=    Get Element Count    ${ROOM_BOOK_BTN}
